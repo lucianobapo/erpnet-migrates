@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Schema\Blueprint;
-use ErpNET\App\Repositories\BaseMigration;
+use ErpNET\Migrates\BaseMigration;
 
 class CreateUsersTable extends BaseMigration {
 

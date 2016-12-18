@@ -1,6 +1,6 @@
 <?php
 
-use ErpNET\App\Repositories\BaseMigration;
+use ErpNET\Migrates\BaseMigration;
 use Illuminate\Database\Schema\Blueprint;
 
 class CreateDocumentsTable extends BaseMigration {

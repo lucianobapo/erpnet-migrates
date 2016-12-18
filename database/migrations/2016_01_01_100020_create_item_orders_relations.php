@@ -1,6 +1,6 @@
 <?php
 
-use ErpNET\App\Repositories\BaseMigration;
+use ErpNET\Migrates\BaseMigration;
 
 class CreateItemOrdersRelations extends BaseMigration
 {
