@@ -20,7 +20,7 @@ class CreatePostsTable extends BaseMigration {
             /**
              * Relacionamentos entre as tabelas
              */
-//            $table->integer('order_id')->unsigned()->index()->nullable();
+            $table->integer('page_id')->unsigned()->index()->nullable();
 
             /**
              * Campos de data
