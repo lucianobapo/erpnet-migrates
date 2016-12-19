@@ -37,6 +37,7 @@ class CreatePagesTable extends BaseMigration {
 //            $table->timestamp('start_date')->default(DB::raw('CURRENT_TIMESTAMP'))->index();
 //            $table->timestamp('end_date')->default(DB::raw('CURRENT_TIMESTAMP'))->index();
 
+            $table->integer('ordem')->unsigned()->nullable();
             $table->string('rota')->nullable();
             $table->string('nome')->nullable();
             $table->string('h1')->nullable();
