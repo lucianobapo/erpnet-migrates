@@ -37,10 +37,12 @@ class CreatePagesTable extends BaseMigration {
 //            $table->timestamp('start_date')->default(DB::raw('CURRENT_TIMESTAMP'))->index();
 //            $table->timestamp('end_date')->default(DB::raw('CURRENT_TIMESTAMP'))->index();
 
+            $table->string('rota')->nullable();
             $table->string('nome')->nullable();
-            $table->string('titulo')->nullable();
-            $table->string('descricao')->nullable();
-            $table->string('conteudo')->nullable();
+            $table->string('h1')->nullable();
+            $table->string('h2')->nullable();
+            $table->string('view')->nullable();
+            $table->text('conteudo')->nullable();
         });
     }
 
