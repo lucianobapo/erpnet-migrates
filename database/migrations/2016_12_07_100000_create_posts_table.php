@@ -38,6 +38,7 @@ class CreatePostsTable extends BaseMigration {
 //            $table->timestamp('end_date')->default(DB::raw('CURRENT_TIMESTAMP'))->index();
 
             $table->string('title')->index();
+            $table->string('titleSlug')->nullable()->index();
             $table->string('description')->nullable();
             $table->string('paramProfileImageSize')->nullable();
 //            $table->string('paramProfileImagePosition')->nullable();
