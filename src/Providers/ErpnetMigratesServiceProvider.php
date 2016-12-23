@@ -22,6 +22,11 @@ class ErpnetMigratesServiceProvider extends ServiceProvider
         //Publish Config
 //        $configPath = __DIR__ . '/../config/debugbar.php';
 //        $this->publishes([$configPath => $this->getConfigPath()], 'config');
+        $configPath = $projectRootDir . 'config/erpnetMigrates.php';
+        $this->mergeConfigFrom($configPath, 'erpnetMigrates');
+        $this->publishes([
+            $projectRootDir.'config/erpnetMigrates.php' => config_path('erpnetMigrates.php'),
+        ]);
 
         $this->publishes([ $migrationsDir => database_path("migrations") ], 'migrations');
 

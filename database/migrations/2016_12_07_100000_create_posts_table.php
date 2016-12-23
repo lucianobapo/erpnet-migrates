@@ -40,6 +40,7 @@ class CreatePostsTable extends BaseMigration {
             $table->string('title')->index();
             $table->string('titleSlug')->nullable()->index();
             $table->string('description')->nullable();
+            $table->string('hint')->nullable();
             $table->string('paramProfileImageSize')->nullable();
 //            $table->string('paramProfileImagePosition')->nullable();
             $table->string('paramProfileImageX')->nullable();

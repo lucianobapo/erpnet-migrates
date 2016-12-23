@@ -29,6 +29,7 @@ abstract class BaseMigration extends Migration
 
         if (DB::connection()->getDriverName()=='mysql')
             DB::statement('SET FOREIGN_KEY_CHECKS = 1'); // enable foreign key constraints
+
     }
 
     protected function createIndex($field){
@@ -67,15 +68,19 @@ abstract class BaseMigration extends Migration
 
     public function up()
     {
-        if(is_null($this->connection)) $this->connection = Schema::connection(config('database.default'));
-        $this->upMigration();
-        if (config('app.env')!='testing') echo get_class($this)." is up\n";
+        if(isset(config('erpnetMigrates.tables')[$this->table])){
+            if(is_null($this->connection)) $this->connection = Schema::connection(config('database.default'));
+            $this->upMigration();
+            if (config('app.env')!='testing') echo get_class($this)." is up\n";
+        } elseif (config('app.env')!='testing') echo $this->table." not configured\n";
     }
 
     public function down()
     {
-        if(is_null($this->connection)) $this->connection = Schema::connection(config('database.default'));
-        $this->downMigration();
-        if (config('app.env')!='testing') echo get_class($this)." is down\n";
+        if(isset(config('erpnetMigrates.tables')[$this->table])){
+            if(is_null($this->connection)) $this->connection = Schema::connection(config('database.default'));
+            $this->downMigration();
+            if (config('app.env')!='testing') echo get_class($this)." is down\n";
+        } elseif (config('app.env')!='testing') echo $this->table." not configured\n";
     }
 }
