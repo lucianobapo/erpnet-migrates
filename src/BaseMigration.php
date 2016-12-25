@@ -22,13 +22,17 @@ abstract class BaseMigration extends Migration
 
     protected function dropTable()
     {
-        if (DB::connection()->getDriverName()=='mysql')
-            DB::statement('SET FOREIGN_KEY_CHECKS = 0'); // disable foreign key constraints
+//        if (DB::connection()->getDriverName()=='mysql')
+//            DB::statement('SET FOREIGN_KEY_CHECKS = 0'); // disable foreign key constraints
 
-        Schema::drop($this->table);
+        Schema::disableForeignKeyConstraints();
 
-        if (DB::connection()->getDriverName()=='mysql')
-            DB::statement('SET FOREIGN_KEY_CHECKS = 1'); // enable foreign key constraints
+        Schema::dropIfExists($this->table);
+
+        Schema::enableForeignKeyConstraints();
+
+//        if (DB::connection()->getDriverName()=='mysql')
+//            DB::statement('SET FOREIGN_KEY_CHECKS = 1'); // enable foreign key constraints
 
     }
 
