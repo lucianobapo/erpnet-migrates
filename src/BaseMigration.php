@@ -72,7 +72,7 @@ abstract class BaseMigration extends Migration
 
     public function up()
     {
-        if(isset(config('erpnetMigrates.tables')[$this->table])){
+        if(env('ERPNET_MIGRATES_FORCE', false) || isset(config('erpnetMigrates.tables')[$this->table])){
             if(is_null($this->connection)) $this->connection = Schema::connection(config('database.default'));
             $this->upMigration();
             if (config('app.env')!='testing') echo get_class($this)." is up\n";
@@ -81,7 +81,7 @@ abstract class BaseMigration extends Migration
 
     public function down()
     {
-        if(isset(config('erpnetMigrates.tables')[$this->table])){
+        if(env('ERPNET_MIGRATES_FORCE', false) || isset(config('erpnetMigrates.tables')[$this->table])){
             if(is_null($this->connection)) $this->connection = Schema::connection(config('database.default'));
             $this->downMigration();
             if (config('app.env')!='testing') echo get_class($this)." is down\n";
