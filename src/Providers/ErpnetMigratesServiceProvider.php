@@ -26,9 +26,9 @@ class ErpnetMigratesServiceProvider extends ServiceProvider
         $this->mergeConfigFrom($configPath, 'erpnetMigrates');
         $this->publishes([
             $projectRootDir.'config/erpnetMigrates.php' => config_path('erpnetMigrates.php'),
-        ]);
+        ], 'erpnetMigratesConfig');
 
-        $this->publishes([ $migrationsDir => database_path("migrations") ], 'migrations');
+        $this->publishes([ $migrationsDir => database_path("migrations") ], 'erpnetMigratesMigrations');
 
         //Bind Interfaces
 //        $app->bind(PartnerRepository::class, PartnerRepositoryEloquent::class);
