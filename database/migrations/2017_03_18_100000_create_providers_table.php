@@ -3,7 +3,7 @@
 use ErpNET\Migrates\BaseMigration;
 use Illuminate\Database\Schema\Blueprint;
 
-class CreateMandantesTable extends BaseMigration {
+class CreateProvidersTable extends BaseMigration {
 
     protected $table = 'providers';
 
