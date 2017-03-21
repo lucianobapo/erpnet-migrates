@@ -38,7 +38,7 @@ class CreateProvidersTable extends BaseMigration {
 //            $table->timestamp('end_date')->default(DB::raw('CURRENT_TIMESTAMP'))->index();
             $table->string('provider')->index();
             $table->string('provider_id')->index();
-            $table->string('app_id')->nullable();
+//            $table->string('app_id')->nullable();
         });
     }
 
