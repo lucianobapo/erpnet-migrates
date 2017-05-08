@@ -15,6 +15,19 @@ abstract class BaseMigration extends Migration
     abstract protected function upMigration();
     abstract protected function downMigration();
 
+    protected function dropColumn($column)
+    {
+        if (Schema::hasColumn($this->table, $column))
+            Schema::table($this->table, function (Blueprint $table) use ($column) {
+                $table->dropColumn($column);
+            });
+    }
+
+    protected function alterTable(Closure $callback)
+    {
+        Schema::table($this->table, $callback);
+    }
+
     protected function createTable(Closure $callback)
     {
         Schema::create($this->table, $callback);
