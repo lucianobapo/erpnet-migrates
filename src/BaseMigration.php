@@ -89,7 +89,9 @@ abstract class BaseMigration extends Migration
             if(is_null($this->connection)) $this->connection = Schema::connection(config('database.default'));
             $this->upMigration();
             if (config('app.env')!='testing') echo get_class($this)." is up\n";
-        } elseif (config('app.env')!='testing') echo $this->table." not configured\n";
+        } elseif (config('app.env')!='testing') {
+            echo $this->table." not configured\n";
+        }
     }
 
     public function down()
