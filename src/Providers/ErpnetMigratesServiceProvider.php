@@ -6,6 +6,10 @@ use Illuminate\Support\ServiceProvider;
 
 class ErpnetMigratesServiceProvider extends ServiceProvider
 {
+    protected $commands = [
+        \ErpNET\Migrates\Console\Commands\Install::class,
+    ];
+
     /**
      * Bootstrap the application services.
      *
@@ -49,6 +53,9 @@ class ErpnetMigratesServiceProvider extends ServiceProvider
     public function register()
     {
 //        $this->app->register(\Dingo\Api\Provider\LaravelServiceProvider::class);
+
+        // register the artisan commands
+        $this->commands($this->commands);
     }
 
     /**
